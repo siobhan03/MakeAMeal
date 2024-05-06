@@ -6,7 +6,7 @@ public class recipes {
 
     //add default to all switch statements
     public void greek(){
-        HttpRequestExample httpRequestExample = new HttpRequestExample();
+        GreekHTTPRequests greekHTTPRequests = new GreekHTTPRequests();
 
         System.out.println("Select a recipe you would like to make today:\n" +
                 "1.Moussaka - A layered dish made with eggplant, minced meat, tomato sauce, and topped with a creamy béchamel sauce.\n" +
@@ -17,13 +17,15 @@ public class recipes {
         switch(chosenRecipe){
             case 1:
                 System.out.println("The meal you have chosen to make today is Moussaka");
+                greekHTTPRequests.moussakaRecipe();
                 break;
             case 2:
                 System.out.println("The meal you have chosen to make today is Souvlaki");
-                httpRequestExample.greekRecipes();
+                greekHTTPRequests.souvlakiRecipe();
                 break;
             case 3:
                 System.out.println("The meal you have chosen to make today is Spanakopita");
+                greekHTTPRequests.spanakopitaRecipe();
                 break;
         }
         //switch statement here with if loop then print text not number
@@ -33,6 +35,7 @@ public class recipes {
     }
 
     public void italian(){
+        ItalianHTTPRequests italianHTTPRequests = new ItalianHTTPRequests();
         System.out.println("Select a recipe you would like to make today:\n" +
                 "1.Spaghetti Carbonara - Pasta tossed in a creamy sauce made with eggs, Pecorino Romano cheese, pancetta or guanciale (cured pork jowl), and black pepper.\n" +
                 "2.Margherita Pizza - A classic pizza topped with tomato sauce, fresh mozzarella cheese, basil leaves, and a drizzle of olive oil.\n" +
@@ -43,17 +46,21 @@ public class recipes {
         switch(chosenRecipe){
             case 1:
                 System.out.println("The meal you have chosen to make today is Spaghetti Carbonara");
+                italianHTTPRequests.carbonaraRecipe();
                 break;
             case 2:
                 System.out.println("The meal you have chosen to make today is Margherita Pizza");
+                italianHTTPRequests.pizzaRecipe();
                 break;
             case 3:
                 System.out.println("The meal you have chosen to make today is Osso Buco");
+                italianHTTPRequests.ossoBucoRecipe();
                 break;
                 }
     }
 
     public void korean(){
+        KoreanHTTPRequests koreanHTTPRequests = new KoreanHTTPRequests();
         System.out.println("Select a recipe you would like to make today:\n" +
                 "1.Bibimbap - A mixed rice dish topped with assorted vegetables, sliced meat (often beef), a fried egg, and spicy gochujang (chili pepper paste) sauce.\n" +
                 "2.Kimchi Jjigae - A spicy stew made with fermented kimchi, tofu, pork or seafood, and various vegetables, served bubbling hot.\n" +
@@ -62,18 +69,22 @@ public class recipes {
         switch(chosenRecipe) {
             case 1:
                 System.out.println("The meal you have chosen to make today is Bibimbap");
+                koreanHTTPRequests.bibimbapRecipe();
                 break;
             case 2:
                 System.out.println("The meal you have chosen to make today is Kimchi Jjigae");
+                koreanHTTPRequests.kimchiRecipe();
                 break;
             case 3:
                 System.out.println("The meal you have chosen to make today is Bulgogi");
+                koreanHTTPRequests.bulgogiRecipe();
                 break;
         }
     }
 
 
     public void mexican(){
+        MexicanHTTPRequests mexicanHTTPRequests = new MexicanHTTPRequests();
         System.out.println("Select a recipe you would like to make today:\n" +
                 "1.Tacos al Pastor - Tacos filled with marinated pork cooked on a vertical rotisserie, typically served with pineapple, onions, cilantro, and salsa.\n" +
                 "2.Enchiladas - Corn tortillas rolled around a filling (such as chicken, cheese, or beans), covered in chili sauce, and baked until bubbly.\n" +
@@ -82,17 +93,21 @@ public class recipes {
         switch(chosenRecipe) {
             case 1:
                 System.out.println("The meal you have chosen to make today is Tacos al Pastor");
+                mexicanHTTPRequests.tacosRecipe();
                 break;
             case 2:
                 System.out.println("The meal you have chosen to make today is Enchiladas");
+                mexicanHTTPRequests.enchiladasRecipe();
                 break;
             case 3:
                 System.out.println("The meal you have chosen to make today is Chiles Rellenos");
+                mexicanHTTPRequests.chilesRellenosRecipe();
                 break;
         }
     }
 
     public void thai(){
+        ThaiHTTPRequests thaiHTTPRequests = new ThaiHTTPRequests();
         System.out.println("Select a recipe you would like to make today:\n" +
                 "1.Pad Thai - Stir-fried rice noodles with eggs, tofu, shrimp or chicken, bean sprouts, peanuts, and a tangy tamarind sauce.\n" +
                 "2.Green Curry (Gaeng Keow Wan) - A fragrant curry made with green curry paste, coconut milk, chicken or beef, eggplant, bamboo shoots, and Thai basil.\n" +
@@ -101,12 +116,15 @@ public class recipes {
         switch(chosenRecipe) {
             case 1:
                 System.out.println("The meal you have chosen to make today is Pad Thai");
+                thaiHTTPRequests.padThaiRecipe();
                 break;
             case 2:
                 System.out.println("The meal you have chosen to make today is Green Curry");
+                thaiHTTPRequests.greenCurryRecipe();
                 break;
             case 3:
                 System.out.println("The meal you have chosen to make today is Tom Yum Goong");
+                thaiHTTPRequests.tomYumGoongRecipe();
                 break;
         }
     }
