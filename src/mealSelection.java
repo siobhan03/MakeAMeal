@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class mealSelection {
 
-    private int preferredCuisine;
+
     public void cuisines(){
         Scanner selection = new Scanner(System.in);
         System.out.println("Below is a list of cuisines you can choose from.\n" +//
@@ -10,7 +10,7 @@ public class mealSelection {
                 "Please select a number:");
 
 
-        preferredCuisine = selection.nextInt();
+        int preferredCuisine = selection.nextInt();
         recipes recipes = new recipes();
         //use case switch for selection
         switch (preferredCuisine){
@@ -38,7 +38,4 @@ public class mealSelection {
 
         }
         }
-    public int urPreferredCuisine(){
-        return preferredCuisine;
-    }
 }
