@@ -4,6 +4,7 @@ public class ThaiRecipes {
     private final HTTPRequests httpRequests;
     private final JSONResponse jsonResponse;
 
+    //Constructor to initialise HTTPRequests and JSONResponse objects
     public ThaiRecipes() {
         this.httpRequests = new HTTPRequests();
         this.jsonResponse = new JSONResponse();
@@ -11,7 +12,9 @@ public class ThaiRecipes {
 
     public void padThaiRecipe() {
         try {
+            //Pass URL to API call for GET request
             String responseBody = httpRequests.sendGetRequest("https://api.edamam.com/api/recipes/v2?type=public&q=pad%20thai&app_id=2e1230ce&app_key=a5fe539645c14033c6f0b5e714f7e664");
+            //Parse JSON response
             jsonResponse.parseJSON(responseBody);
             System.out.println("Instructions\n" +
                     "1.Cook noodles in boiling water for 7-10 minutes until tender. Drain and set aside.\n" +
@@ -21,13 +24,15 @@ public class ThaiRecipes {
                     "5.Sprinkle green onions, cilantro, and peanuts over noodles. Toss lightly to combine. Serve warm. Enjoy!");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Failed to fetch or parse recipe.");
+            System.out.println("Failed to fetch recipe");
         }
     }
 
     public void greenCurryRecipe() {
         try {
-            String responseBody = httpRequests.sendGetRequest("https://api.edamam.com/api/recipes/v2?type=public&q=enchiladas&app_id=2e1230ce&app_key=a5fe539645c14033c6f0b5e714f7e664");
+            //Pass URL to API call for GET request
+            String responseBody = httpRequests.sendGetRequest("https://api.edamam.com/api/recipes/v2?type=public&q=green%20curry&app_id=2e1230ce&app_key=a5fe539645c14033c6f0b5e714f7e664");
+            //Parse JSON response
             jsonResponse.parseJSON(responseBody);
             System.out.println("Instructions:\n" +
                     "1.Make the avocado sauce by blending all ingredients in a food processor until creamy. Season with salt and pepper.\n" +
@@ -37,14 +42,16 @@ public class ThaiRecipes {
                     "5.Serve garnished with basil, sriracha, crushed red pepper flakes, and lime wedges. Enjoy!");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Recipe not found");
+            System.out.println("Failed to fetch recipe");
         }
     }
 
 
     public void tomYumGoongRecipe() {
         try {
+            //Pass URL to API call for GET request
             String responseBody = httpRequests.sendGetRequest("https://api.edamam.com/api/recipes/v2?type=public&q=tom%20yum%20goong&app_id=2e1230ce&app_key=a5fe539645c14033c6f0b5e714f7e664");
+            //Parse JSON response
             jsonResponse.parseJSON(responseBody);
             System.out.println("Instructions\n" +
                     "1.Heat 1-2 tbsp red curry paste in a large saucepan over medium-high heat for 30 seconds until fragrant.\n" +
@@ -54,7 +61,7 @@ public class ThaiRecipes {
                     "5.Season with salt and pepper, then serve sprinkled with fresh coriander leaves. Enjoy!");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Failed to invoke rest method");
+            System.out.println("Failed to fetch recipe");
         }
     }
 }

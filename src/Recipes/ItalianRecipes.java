@@ -4,6 +4,7 @@ public class ItalianRecipes {
     private final HTTPRequests httpRequests;
     private final JSONResponse jsonResponse;
 
+    //Constructor to initialise HTTPRequests and JSONResponse objects
     public ItalianRecipes() {
         this.httpRequests = new HTTPRequests();
         this.jsonResponse = new JSONResponse();
@@ -11,7 +12,9 @@ public class ItalianRecipes {
 
     public void carbonaraRecipe() {
         try {
+            //Pass URL to API call for GET request
             String responseBody = httpRequests.sendGetRequest("https://api.edamam.com/api/recipes/v2?type=public&q=Spaghetti%20Carbonara&app_id=2e1230ce&app_key=a5fe539645c14033c6f0b5e714f7e664");
+            //Parse JSON response
             jsonResponse.parseJSON(responseBody);
             System.out.println("Instructions\n" +
                     "1.Boil a large pot of water for pasta.\n" +
@@ -24,13 +27,15 @@ public class ItalianRecipes {
                     "8.Serve immediately, sprinkled with additional Parmesan cheese.");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Failed to fetch or parse recipe.");
+            System.out.println("Failed to fetch recipe");
         }
     }
 
     public void pizzaRecipe() {
         try {
+            //Pass URL to API call for GET request
             String responseBody = httpRequests.sendGetRequest("https://api.edamam.com/api/recipes/v2?type=public&q=margarita%20pizza&app_id=2e1230ce&app_key=a5fe539645c14033c6f0b5e714f7e664");
+            //Parse JSON response
             jsonResponse.parseJSON(responseBody);
             System.out.println("Instructions:\n" +
                     "1.Preheat oven to 230°C.\n" +
@@ -43,14 +48,16 @@ public class ItalianRecipes {
                     "8.Bake at 230°C for 10 to 14 minutes until cheese is bubbly and crust is slightly browned.");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Recipe not found");
+            System.out.println("Failed to fetch recipe");
         }
     }
 
 
     public void ossoBucoRecipe() {
         try {
+            //Pass URL to API call for GET request
             String responseBody = httpRequests.sendGetRequest("https://api.edamam.com/api/recipes/v2?type=public&q=osso%20buco&app_id=2e1230ce&app_key=a5fe539645c14033c6f0b5e714f7e664");
+            //Parse JSON response
             jsonResponse.parseJSON(responseBody);
             System.out.println("Instructions\n" +
                     "1.Preheat oven to 175°C.\n" +
@@ -65,7 +72,7 @@ public class ItalianRecipes {
                     "10.Return shanks to Dutch oven to heat through and coat with sauce. Sprinkle with chopped parsley and lemon zest before serving.");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Failed to invoke rest method");
+            System.out.println("Failed to fetch recipe");
         }
     }
 }

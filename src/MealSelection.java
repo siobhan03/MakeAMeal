@@ -3,11 +3,14 @@ import java.util.Scanner;
 public class MealSelection {
     public void cuisines() {
         Scanner selection = new Scanner(System.in);
-        System.out.println("Below is a list of cuisines you can choose from.\n" + "1. Greek\n2. Italian\n3. Korean\n4. Mexican\n5. Thai\n" + "Please select a number:");
+        //Display list of cuisines for selection
+        System.out.println("Below is a list of cuisines you can choose from.\n"
+                + "1. Greek\n2. Italian\n3. Korean\n4. Mexican\n5. Thai\n" + "Please select a number:");
 
         int preferredCuisine = selection.nextInt();
         RecipesManager recipes = new RecipesManager();
 
+        //Switch statement to  handle different cuisine selections and call appropriate classes
         switch (preferredCuisine) {
             case 1:
                 System.out.println("Greek");

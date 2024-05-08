@@ -4,6 +4,7 @@ public class KoreanRecipes {
     private final HTTPRequests httpRequests;
     private final JSONResponse jsonResponse;
 
+    //Constructor to initialise HTTPRequests and JSONResponse objects
     public KoreanRecipes() {
         this.httpRequests = new HTTPRequests();
         this.jsonResponse = new JSONResponse();
@@ -11,7 +12,9 @@ public class KoreanRecipes {
 
     public void bibimbapRecipe() {
         try {
+            //Pass URL to API call for GET request
             String responseBody = httpRequests.sendGetRequest("https://api.edamam.com/api/recipes/v2?type=public&q=bibimbap&app_id=2e1230ce&app_key=a5fe539645c14033c6f0b5e714f7e664");
+            //Parse JSON response
             jsonResponse.parseJSON(responseBody);
             System.out.println("Instructions\n" +
                     "1.Marinate the steak in soy sauce for added flavor.\n" +
@@ -22,13 +25,15 @@ public class KoreanRecipes {
                     "6.Sprinkle sesame seeds for extra flavor and serve with the sauce on the side. Enjoy mixing everything together before eating!");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Failed to fetch or parse recipe.");
+            System.out.println("Failed to fetch recipe");
         }
     }
 
     public void kimchiRecipe() {
         try {
+            //Pass URL to API call for GET request
             String responseBody = httpRequests.sendGetRequest("https://api.edamam.com/api/recipes/v2?type=public&q=kimchi%20jjigae&app_id=2e1230ce&app_key=a5fe539645c14033c6f0b5e714f7e664");
+            //Parse JSON response
             jsonResponse.parseJSON(responseBody);
             System.out.println("Instructions:\n" +
                     "1.Heat oil in a large pot over medium-high heat.\n" +
@@ -39,14 +44,16 @@ public class KoreanRecipes {
                     "6.Serve with hot white rice. Enjoy!");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Recipe not found");
+            System.out.println("Failed to fetch recipe");
         }
     }
 
 
     public void bulgogiRecipe() {
         try {
+            //Pass URL to API call for GET request
             String responseBody = httpRequests.sendGetRequest("https://api.edamam.com/api/recipes/v2?type=public&q=bulgogi&app_id=2e1230ce&app_key=a5fe539645c14033c6f0b5e714f7e664");
+            //Parse JSON response
             jsonResponse.parseJSON(responseBody);
             System.out.println("Instructions\n" +
                     "1.In a large bowl, combine soy sauce, sugar, sesame oil, mirin, onion, garlic, ginger, sesame seeds, and black pepper. Whisk until mixed.\n" +
@@ -56,7 +63,7 @@ public class KoreanRecipes {
                     "5.Serve the beef with lettuce, white rice, kimchi, and hot bean paste. Enjoy!");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Failed to invoke rest method");
+            System.out.println("Failed to fetch recipe");
         }
     }
 }

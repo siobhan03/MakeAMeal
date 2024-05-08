@@ -12,6 +12,7 @@ public class GreekRecipes {
     private final HTTPRequests httpRequests;
     private final JSONResponse jsonResponse;
 
+    //Constructor to initialise HTTPRequests and JSONResponse objects
     public GreekRecipes() {
         this.httpRequests = new HTTPRequests();
         this.jsonResponse = new JSONResponse();
@@ -19,7 +20,9 @@ public class GreekRecipes {
 
     public void moussakaRecipe() {
         try {
+            //Pass URL to API call for GET request
             String responseBody = httpRequests.sendGetRequest("https://api.edamam.com/api/recipes/v2?type=public&q=moussaka&app_id=2e1230ce&app_key=a5fe539645c14033c6f0b5e714f7e664");
+            //Parse JSON response
             jsonResponse.parseJSON(responseBody);
             System.out.println("Instructions\n" +
                     "1.Heat a frying pan, fry aubergine slices in olive oil until golden brown and soft. Drain excess oil on a plate lined with kitchen paper.\n" +
@@ -29,13 +32,15 @@ public class GreekRecipes {
                     "5.In a baking dish, layer meat sauce, aubergine slices, and potato slices. Pour béchamel sauce over the top. Bake for 50 mins until golden brown. Let it cool for 10 mins before serving.");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Failed to fetch or parse recipe.");
+            System.out.println("Failed to fetch recipe.");
         }
     }
 
     public void souvlakiRecipe() {
         try {
+            //Pass URL to API call for GET request
             String responseBody = httpRequests.sendGetRequest("https://api.edamam.com/api/recipes/v2?type=public&q=chicken%20souvlaki&app_id=2e1230ce&app_key=%20a5fe539645c14033c6f0b5e714f7e664");
+            //Parse JSON response
             jsonResponse.parseJSON(responseBody);
             System.out.println("Instructions:\n" +
                     "1.Combine finely grated garlic, lemon zest, lemon juice, olive oil, oregano, honey, salt, and pepper in a gallon zip-top bag or baking dish.\n" +
@@ -48,14 +53,16 @@ public class GreekRecipes {
                     "8.Serve by placing chicken, vegetables, olives, and tzatziki on pitas and folding in half to eat.");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Recipe not found");
+            System.out.println("Failed to fetch recipe");
         }
     }
 
 
     public void spanakopitaRecipe() {
         try {
+            //Pass URL to API call for GET request
             String responseBody = httpRequests.sendGetRequest("https://api.edamam.com/api/recipes/v2?type=public&q=Spanakopita&app_id=2e1230ce&app_key=a5fe539645c14033c6f0b5e714f7e664");
+            //Parse JSON response
             jsonResponse.parseJSON(responseBody);
             System.out.println("Instructions\n" +
                     "1.Melt butter in a pot on medium heat. Whisk in potato starch, then slowly add milk while whisking until it thickens. Remove from heat, whisk in Parmesan, nutmeg, and salt. Cool in the fridge for 20 mins.\n" +
@@ -64,7 +71,7 @@ public class GreekRecipes {
                     "4.Bake for 30-35 mins until golden brown and matzo softens. Let it rest for 10 mins before slicing.");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Failed to invoke rest method");
+            System.out.println("Failed to fetch recipe");
         }
     }
 }
