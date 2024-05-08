@@ -10,10 +10,16 @@ public class RegistrationPage {
                 System.out.println("Restarting registration...");
             }
             System.out.println("Registration Page");
+            System.out.print("Please enter your first name: ");
+            String firstName = scanner.nextLine();
+            System.out.print("Please enter your last name: ");
+            String lastName = scanner.nextLine();
             System.out.print("Please enter your username: ");
             String username = scanner.nextLine();
             System.out.print("Please enter your email: ");
             String email = scanner.nextLine();
+            System.out.print("Please enter your age: ");
+            int age = Integer.parseInt(scanner.nextLine());
             String password;
             do {
                 System.out.print("Please enter your password: ");
@@ -26,12 +32,23 @@ public class RegistrationPage {
                     break;
                 }
             } while (true);
-            System.out.println("Username: " + username);
-            System.out.println("Email: " + email);
+            String birthday;
+            while (true) {
+                System.out.print("Please enter your birthday (YYYY-MM-DD): ");
+                birthday = scanner.nextLine();
+                if (isValidDate(birthday)) {
+                    break;
+                } else {
+                    System.out.println("Invalid date format. Please enter a valid date in YYYY-MM-DD format.");
+                }
+            }
+            String dietaryInput = scanner.nextLine().toUpperCase();
+            boolean hasDietaryRequirements = dietaryInput.equals("Y");
             System.out.print("Are these details correct? yes/no: ");
             String response = scanner.nextLine().toLowerCase();
             if (response.equals("yes")) {
-                Users newUser = new Users();
+                Users newUser = new Users(firstName, lastName, username, email, age, birthday, password, hasDietaryRequirements);
+                newUser.writeToCSV();
                 boolean registrationSuccessful = newUser.register();
                 if (registrationSuccessful) {
                     System.out.println("Registration successful!");
@@ -52,6 +69,13 @@ public class RegistrationPage {
                 restartRegistration = true;
             }
         } while (restartRegistration);
+    }
+    // Method to validate date format
+    private static boolean isValidDate(String date) {
+        if (date.matches("\\d{4}-\\d{2}-\\d{2}")) {
+            return true;
+        }
+        return false;
     }
 }
 

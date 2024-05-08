@@ -1,21 +1,15 @@
 import java.util.Scanner;
 
-public class mealSelection {
-
-
-    public void cuisines(){
+public class MealSelection {
+    public void cuisines() {
         Scanner selection = new Scanner(System.in);
-        System.out.println("Below is a list of cuisines you can choose from.\n" +//
-                "1. Greek\n2. Italian\n3. Korean\n4. Mexican\n5. Thai\n" +
-                "Please select a number:");
-
+        System.out.println("Below is a list of cuisines you can choose from.\n" + "1. Greek\n2. Italian\n3. Korean\n4. Mexican\n5. Thai\n" + "Please select a number:");
 
         int preferredCuisine = selection.nextInt();
-        recipes recipes = new recipes();
-        //use case switch for selection
-        switch (preferredCuisine){
+        RecipesManager recipes = new RecipesManager();
+
+        switch (preferredCuisine) {
             case 1:
-                //print more detailed message
                 System.out.println("Greek");
                 recipes.greek();
                 break;
@@ -35,7 +29,6 @@ public class mealSelection {
                 System.out.println("Thai");
                 recipes.thai();
                 break;
-
         }
-        }
+    }
 }
